@@ -33,7 +33,7 @@ namespace FormsWithCocosSharp
             _ballSprite = new CCSprite("ball")
             {
                 PositionX = 320,
-                PositionY = 600
+                PositionY = 1000
             };
             AddChild(_ballSprite);
 

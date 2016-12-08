@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using CocosSharp;
+using Xamarin.Forms;
 
 namespace FormsWithCocosSharp
 {
@@ -11,7 +13,7 @@ namespace FormsWithCocosSharp
         {
             _scoreMessage = $"Game Over. You scored {score}!";
         }
-        
+
         protected override void AddedToScene()
         {
             base.AddedToScene();
@@ -38,6 +40,12 @@ namespace FormsWithCocosSharp
                 Dimensions = ContentSize
             };
 
+            // Register for touch events
+            AddEventListener(new CCEventListenerTouchAllAtOnce
+            {
+                OnTouchesEnded = OnTouchesEnded,
+            }, playAgainLabel);
+
             AddChild(playAgainLabel);
         }
 
@@ -49,6 +57,15 @@ namespace FormsWithCocosSharp
             scene.AddChild(layer);
 
             return scene;
+        }
+
+        private void OnTouchesEnded(List<CCTouch> touches, CCEvent touchEvent)
+        {
+            if (touches.Count > 0)
+            {
+                // Perform touch handling here
+
+            }
         }
     }
 }
