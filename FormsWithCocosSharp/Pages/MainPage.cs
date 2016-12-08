@@ -8,7 +8,7 @@ namespace FormsWithCocosSharp.Pages
     {
         public MainPage()
         {
-            var gameView = new CocosSharpView
+            Content = new CocosSharpView
             {
                 // Notice it has the same properties as other XamarinForms Views
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -16,11 +16,10 @@ namespace FormsWithCocosSharp.Pages
                 // This gets called after CocosSharp starts up:
                 ViewCreated = OnViewCreated
             };
-            Content = gameView;
         }
 
-        // LoadGame is called when CocosSharp is initialized. We can begin creating
-        // our CocosSharp objects here:
+         //LoadGame is called when CocosSharp is initialized. We can begin creating
+         //our CocosSharp objects here:
         private void OnViewCreated(object sender, EventArgs e)
         {
             var gameView = sender as CCGameView;
@@ -30,7 +29,7 @@ namespace FormsWithCocosSharp.Pages
             }
 
             // Set world dimensions
-            gameView.DesignResolution = new CCSizeI(768, 1027);
+            gameView.DesignResolution = new CCSizeI(758, 1080);
 
             var gameScene = new CCScene(gameView);
 
